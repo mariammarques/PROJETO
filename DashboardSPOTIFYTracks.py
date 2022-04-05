@@ -41,6 +41,21 @@ artists_df["id"].value_counts()
 artists_df.set_index('id', inplace = True)
 
 """
+Ideias de Gráficos:
+-- TRACKS --
+ > Nº músicas lançadas por ano
+ > Caraterísticas das músicas por Popularidade (teia)
+ > Avg(Caraterísticas) por Décadas (teia)
+ > Avg(Caraterísticas) por Anos (evolução)
+ > Músicas mais populares (cards) -> slicers: ano, artista, caraterística
+
+-- ARTISTS --
+ > Artistas por Popularidade -> slicers: ano, artista, caraterística
+ > "Track Bio" de um artista selecionado + popularidade atual + nº de followers
+ 
+"""
+
+"""
 gas_names = ['CO2_emissions', 'GHG_emissions', 'CH4_emissions', 'N2O_emissions', 'F_Gas_emissions']
 
 sectors = ['energy_emissions', 'industry_emissions',
