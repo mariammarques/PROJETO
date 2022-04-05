@@ -6,14 +6,15 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objs as go
 
-# https://htmlcheatsheet.com/css/
+###################################################### Data & Treatment ################################################################
 
-######################################################Data##############################################################
+tracks_df = pd.read_csv('https://media.githubusercontent.com/media/mariammarques/PROJETO/main/Datasets/tracks.csv')
+artists_df = pd.read_csv('https://raw.githubusercontent.com/mariammarques/PROJETO/main/Datasets/artists.csv')
 
-path = 'https://raw.githubusercontent.com/nalpalhao/DV_Practival/master/datasets/'
+# see the first 5 lines of the dataframe
+tracks_df.head()
 
-df = pd.read_csv(path + 'emissions.csv')
-
+"""
 gas_names = ['CO2_emissions', 'GHG_emissions', 'CH4_emissions', 'N2O_emissions', 'F_Gas_emissions']
 
 sectors = ['energy_emissions', 'industry_emissions',
@@ -273,3 +274,4 @@ def indicator(countries, year):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+"""
