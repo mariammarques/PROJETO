@@ -5,7 +5,9 @@ from dash.dependencies import Input, Output, State
 import numpy as np
 import pandas as pd
 import plotly.graph_objs as go
-from Datasets import artists_df, tracks_df
+# from Datasets import artists_df, tracks_df
+from Datasets import tracks_df
+from utils import new_artists_df
 
 """
 Ideias de Gráficos:
@@ -35,7 +37,7 @@ dropdown_tracks = dcc.Dropdown(
     )
 
 
-artists_options = [dict(label=name, value=name) for name in artists_df['name'].unique()]
+artists_options = [dict(label=name, value=name) for name in new_artists_df['name'].unique()]
 dropdown_artists = dcc.Dropdown(
         id = 'artists_option',
         options = artists_options,
@@ -71,13 +73,15 @@ server = app.server
 app.layout = html.Div([
     #TÍTULO
     html.Div([
-        html.H1('METER AQUI O TITULO DO SITE'),
+        html.H1('SPOTIFY MUSIC SEARCHER'),
+        html.H2('António Cymbron | Duarte Redinha | Maria João M. Marques'),
+        html.H3('Data Vizualization @ NOVA IMS'),
     ], id = '1st row', className='pretty_box'),
     #AQUI COMEÇA O CÓDIGO DAS TABS
     html.Div([
         dcc.Tabs([
             # tab 1
-            dcc.Tab(label = 'NOME DA 1ª TAB', children = [
+            dcc.Tab(label = 'Geral View', children = [
                 #aqui fica o código das visualizações
                 html.Div([
                     html.Label("Pick a Track"),
@@ -89,6 +93,7 @@ app.layout = html.Div([
                     html.Label("Pick a Year"),
                     slider_year,
                     html.Br(),
+                    html.Br(),
                     html.Label("Explicit?"),
                     explicit_filter
                 ], id = "Interaction", style = {'width': '30%'}, className = 'pretty_box'),
@@ -98,7 +103,7 @@ app.layout = html.Div([
                 #aqui ficam as definições de style da tab quando está selected
             }),
             # tab 2
-            dcc.Tab(label='NOME DA 2ª TAB', children=[
+            dcc.Tab(label='Artist Finder', children=[
                 # aqui fica o código das visualizações
             ], style={
                 # aqui ficam as definições de style da tab
@@ -106,7 +111,7 @@ app.layout = html.Div([
                 # aqui ficam as definições de style da tab quando está selected
             }),
             # tab 3
-            dcc.Tab(label='NOME DA 3ª TAB', children=[
+            dcc.Tab(label='Music Discover', children=[
                 # aqui fica o código das visualizações
             ], style={
                 # aqui ficam as definições de style da tab
