@@ -26,7 +26,7 @@ Ideias de Gráficos:
 
 ################################################ Interactive Components ################################################
 
-tracks_options = [dict(label='Track Name', value=name) for name in tracks_df['name'].unique()]
+tracks_options = [dict(label=name, value=name) for name in tracks_df['name'].unique()]
 dropdown_tracks = dcc.Dropdown(
         id = 'tracks_drop',
         options = tracks_options,
@@ -35,7 +35,7 @@ dropdown_tracks = dcc.Dropdown(
     )
 
 
-artists_options = [dict(label='Artist Name', value=name) for name in artists_df['name'].unique()]
+artists_options = [dict(label=name, value=name) for name in artists_df['name'].unique()]
 dropdown_artists = dcc.Dropdown(
         id = 'artists_option',
         options = artists_options,
@@ -61,7 +61,6 @@ explicit_filter = dcc.RadioItems(
                  dict(label = 'Yes', value = 1)],
         value=0
     )
-
 
 ################################################## APP #################################################################
 
