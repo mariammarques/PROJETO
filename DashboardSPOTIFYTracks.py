@@ -5,10 +5,82 @@ from dash.dependencies import Input, Output, State
 import numpy as np
 import pandas as pd
 import plotly.graph_objs as go
-# from Datasets import artists_df, tracks_df
-from Datasets import tracks_df
-from utils import new_artists_df
+from Datasets import artists_df, tracks_df
 
+################################################## APP #################################################################
+
+app = dash.Dash(__name__)
+
+server = app.server
+
+app.layout = html.Div([
+    # Dash app title
+    html.Div([
+        html.Img(src = '/assets/Spotify_Logo_small.png'),
+        html.H1('Music Searcher'),
+        html.H3('António Cymbron | Duarte Redinha | Maria João M. Marques'),
+        html.H4('Data Vizualization @ NOVA IMS')
+    ], id='Website Title', className="title_box"),
+    # Tabs Container
+    dcc.Tabs(
+        id="tabs_container",
+        value="geral_view_tab",
+        parent_className='custom-tabs',
+        className='custom-tabs-container',
+        children=[
+            # First Tab
+            dcc.Tab(
+                label="Geral View",
+                value="geral_view_tab",
+                className='custom-tab',
+                selected_className='custom-tab--selected'
+            ),
+            # Second Tab
+            dcc.Tab(
+                label="Artist Finder",
+                value="artist_finder_tab",
+                className='custom-tab',
+                selected_className='custom-tab--selected'
+            ),
+            # Third Tab
+            dcc.Tab(
+                label="Music Discover" ,
+                value="music_discover_tab",
+                className='custom-tab',
+                selected_className='custom-tab--selected'
+            )
+    ]),
+    # App content
+    html.Div(id='tabs_content_graphs')
+])
+
+# Callback to get the selected tab content
+@app.callback(
+    Output('tabs_content_graphs', 'children'),
+    Input('tabs_container', 'value')
+)
+
+# Function to render the tab content
+def render_content(tab):
+    if tab == 'geral_view_tab':
+        return html.Div([
+            html.Img(src="/assets/tab_geral_tailson.jpeg")
+        ])
+    elif tab == 'artist_finder_tab':
+        return html.Div([
+            html.Img(src="/assets/tab_artists_tailson.jpeg")
+        ])
+    elif tab == 'music_discover_tab':
+        return html.Div([
+            html.Div([
+                html.Img(src="/assets/tab_musics_tailson.jpeg")
+            ])
+        ])
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
+
+########################################################################################################################
 """
 Ideias de Gráficos:
 -- TAB1: GERAL --
@@ -21,14 +93,15 @@ Ideias de Gráficos:
 
 -- TAB2: ARTISTS --
  > "Track Bio" de um artista selecionado + popularidade atual + nº de followers
+ > Comparador de artistas?
  
 -- TAB3: TRACKS --
  > info sobre uma música selecionada
 """
 
-################################################ Interactive Components ################################################
+########################################### TAB1 Interactive Components ################################################
 
-tracks_options = [dict(label=name, value=name) for name in tracks_df['name'].unique()]
+tracks_options = [dict(label=name, value=name) for name in tracks_df['name_track'].unique()]
 dropdown_tracks = dcc.Dropdown(
         id = 'tracks_drop',
         options = tracks_options,
@@ -37,7 +110,7 @@ dropdown_tracks = dcc.Dropdown(
     )
 
 
-artists_options = [dict(label=name, value=name) for name in new_artists_df['name'].unique()]
+artists_options = [dict(label=name, value=name) for name in artists_df['name'].unique()]
 dropdown_artists = dcc.Dropdown(
         id = 'artists_option',
         options = artists_options,
@@ -64,63 +137,6 @@ explicit_filter = dcc.RadioItems(
         value=0
     )
 
-################################################## APP #################################################################
+########################################### TAB2 Interactive Components ################################################
 
-app = dash.Dash(__name__)
-
-server = app.server
-
-app.layout = html.Div([
-    #TÍTULO
-    html.Div([
-        html.H1('SPOTIFY MUSIC SEARCHER'),
-        html.H2('António Cymbron | Duarte Redinha | Maria João M. Marques'),
-        html.H3('Data Vizualization @ NOVA IMS'),
-    ], id = '1st row', className='pretty_box'),
-    #AQUI COMEÇA O CÓDIGO DAS TABS
-    html.Div([
-        dcc.Tabs([
-            # tab 1
-            dcc.Tab(label = 'Geral View', children = [
-                #aqui fica o código das visualizações
-                html.Div([
-                    html.Label("Pick a Track"),
-                    dropdown_tracks,
-                    html.Br(),
-                    html.Label("Pick an Artist"),
-                    dropdown_artists,
-                    html.Br(),
-                    html.Label("Pick a Year"),
-                    slider_year,
-                    html.Br(),
-                    html.Br(),
-                    html.Label("Explicit?"),
-                    explicit_filter
-                ], id = "Interaction", style = {'width': '30%'}, className = 'pretty_box'),
-            ], style = {
-                #aqui ficam as definições de style da tab
-            }, selected_style = {
-                #aqui ficam as definições de style da tab quando está selected
-            }),
-            # tab 2
-            dcc.Tab(label='Artist Finder', children=[
-                # aqui fica o código das visualizações
-            ], style={
-                # aqui ficam as definições de style da tab
-            }, selected_style={
-                # aqui ficam as definições de style da tab quando está selected
-            }),
-            # tab 3
-            dcc.Tab(label='Music Discover', children=[
-                # aqui fica o código das visualizações
-            ], style={
-                # aqui ficam as definições de style da tab
-            }, selected_style={
-                # aqui ficam as definições de style da tab quando está selected
-            })
-        ])
-    ])
-])
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
+########################################### TAB3 Interactive Components ################################################

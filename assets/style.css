@@ -4,73 +4,45 @@ body {
     background-position: right top
 }
 
-.box {
-  border-radius: 5px;
-  background-color: #a00202;
-  margin: 10px;
-  padding: 15px;
-  box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
-}
-
-h1, h2, h3, h4, h5, h6 {
+.title_box {
+  padding: 10px;
   text-align: center;
-  border-radius: 20px;
-  background-color: rgba(59, 234, 193, 0.56);
-  margin: 2px;
-  box-shadow: 2px 2px 2px lightgrey;
+  font-variant: small-caps;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #FFFFFF;
 }
 
 
-.examples {
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    width: 80%;
-    height: 100%;
+.custom-tabs-container {
+    width: 85%;
+
+}
+.custom-tabs {
+    border-top-left-radius: 3px;
+    background-color: #f9f9f9;
+    padding: 0px 24px;
+    border-bottom: 1px solid #d6d6d6;
 }
 
-Button {
-  display: inline-block;
-  height: 38px;
-  padding: 0 30px;
-  color: #555;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 38px;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: #f8eb00;
-  border-radius: 4px;
-  border: 1px solid #bbb;
-  cursor: pointer;
-  box-sizing: border-box;
-  float: right;
-  }
-
-@media (max-width: 900px) {
-  .row {
-    display: block;
-  }
+.custom-tab {
+    color:#586069;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top: 3px solid transparent !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+    background-color: #fafbfc;
+    padding: 12px !important;
+    font-family: "system-ui";
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
 }
-
-.box_emissions{
-  border-radius: 20px;
-  background-color: rgba(59, 234, 193, 0.56);
-  margin: 20px;
-  box-shadow: 2px 2px 2px lightgrey;
-  justify-content: center;
-  width: 20%;
-  text-align: center;
-}
-
-.pretty_box {
-  padding: 20px;
-  border-radius: 20px;
-  background-color: rgba(59, 234, 193, 0.56);
-  margin: 20px;
-  box-shadow: 2px 2px 2px lightgrey;
+.custom-tab--selected {
+    color: black;
+    box-shadow: 1px 1px 0px white;
+    border-left: 1px solid lightgrey !important;
+    border-right: 1px solid lightgrey !important;
+    border-top: 3px solid #e36209 !important;
 }
