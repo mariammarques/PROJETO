@@ -4,4 +4,3 @@ dash_html_components
 pandas
 plotly
 scipy
-random
