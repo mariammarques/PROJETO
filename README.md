@@ -49,3 +49,5 @@ This dataset is owned by Lehak Narnauli, and had the contribution of Aditya Kuma
 |genres                   |character | Genres attributed|
 |name                     |character | Artist Name|
 |popularity               |double    | Artist Popularity (0-100), where higher is better|
+
+Enjoy at https://music-discover-april2022.herokuapp.com/
