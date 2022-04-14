@@ -4,8 +4,8 @@ import pandas as pd
 ############################################ Data Importing & Data Treatment ###########################################
 
 # Importing the data
-tracks_df = pd.read_csv('https://raw.githubusercontent.com/mariammarques/PROJETO/main/Datasets/tracks_30.csv')
-artists_df = pd.read_csv('https://raw.githubusercontent.com/mariammarques/PROJETO/main/Datasets/artists_30.csv')
+tracks_df = pd.read_csv('https://raw.githubusercontent.com/mariammarques/PROJETO/main/Datasets/tracks_new.csv')
+artists_df = pd.read_csv('https://raw.githubusercontent.com/mariammarques/PROJETO/main/Datasets/artists_new.csv')
 
 # Importing the data
 #tracks_df = pd.read_csv('C:/Users/maria/Desktop/tracks_30.csv')
@@ -35,9 +35,9 @@ artists_df = artists_df.dropna(subset=['followers'])
 artists_df.drop(columns=['genres'], inplace=True)
 artists_df.set_index('id', inplace=True)
 
-# Reducing the dataset to have only the artists with popularity >=30
+# Reducing the dataset to have only the artists with popularity >=50
 tracks_df['id_artists'] = tracks_df['id_artists'].map(lambda x: str(x[0]))
-#artists_df = artists_df[artists_df.popularity >= 30]
+artists_df = artists_df[artists_df.popularity >= 50]
 tracks_df = artists_df.merge(tracks_df, left_index=True, right_on=['id_artists'], how='left')
 tracks_df = tracks_df.dropna()
 tracks_df = tracks_df.iloc[:, 3:]
@@ -61,13 +61,13 @@ df_3.sort_values(by='popularity_track', inplace=True, ascending=False)
 
 # Create a function to "label" the popularity, so we don't unnecessary groups
 def popularity_group(pop_value):
-    if pop_value <= 10:
+    if pop_value <= 60:
         pop_value = 1
-    elif pop_value <= 25:
+    elif pop_value <= 70:
         pop_value = 2
-    elif pop_value <= 50:  # Basically, depending on the value of song's popularity
+    elif pop_value <= 80:  # Basically, depending on the value of song's popularity
         pop_value = 3  # They will be attributed a new value ranging from 1 to 5
-    elif pop_value <= 75:
+    elif pop_value <= 90:
         pop_value = 4
     elif pop_value <= 100:
         pop_value = 5
