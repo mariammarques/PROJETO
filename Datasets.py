@@ -4,8 +4,8 @@ import pandas as pd
 ############################################ Data Importing & Data Treatment ###########################################
 
 # Importing the data
-tracks_df = pd.read_csv('https://media.githubusercontent.com/media/mariammarques/PROJETO/main/Datasets/tracks_30.csv')
-artists_df = pd.read_csv('https://media.githubusercontent.com/media/mariammarques/PROJETO/main/Datasets/artists_30.csv')
+tracks_df = pd.read_csv('https://raw.githubusercontent.com/mariammarques/PROJETO/main/Datasets/tracks_30.csv')
+artists_df = pd.read_csv('https://raw.githubusercontent.com/mariammarques/PROJETO/main/Datasets/artists_30.csv')
 
 # Importing the data
 #tracks_df = pd.read_csv('C:/Users/maria/Desktop/tracks_30.csv')
