@@ -1,48 +1,164 @@
+/* Background of the app */
 body {
     background-image: linear-gradient(#191414, #4B917D);
     background-repeat: no-repeat;
     background-position: right top
 }
 
+/* Customization of the tabs */
+/* Customization of the tabs container*/
+.tabs {
+    background-color: rgba(0,0,0,0.4);
+    padding: 0px 25%;
+    border-bottom: 5px solid #1DB954;
+    box-shadow: 8px 8px 8px rgba(0,0,0,0.2);
+}
+/* Customization of the first tab */
+.tab1 {
+	background-position: calc(100% - 185px) center;
+	background-repeat: no-repeat;
+	background-image: url(home_green.png);
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #FCF9F4;
+}
+/* Customization of the second tab */
+.tab2 {
+	background-position: calc(100% - 185px) center;
+	background-repeat: no-repeat;
+	background-image: url(artist_green.png);
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #FCF9F4;
+}
+/* Customization of the third tab */
+.tab3 {
+	background-position: calc(100% - 185px) center;
+	background-repeat: no-repeat;
+	background-image: url(music_green.png);
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #FCF9F4;
+}
+/* Customization of the first tab, when selected */
+.tab1_selected {
+    color: #FCF9F4 !important;
+    border-left: 1px solid #1DB954 !important;
+    border-right: 1px solid #1DB954 !important;
+    border-top: 3px solid #1DB954 !important;
+    background-color: #1DB954 !important;
+    background-image: url(home_white.png);
+}
+/* Customization of the second tab, when selected */
+.tab2_selected {
+    color: #FCF9F4 !important;
+    border-left: 1px solid #1DB954 !important;
+    border-right: 1px solid #1DB954 !important;
+    border-top: 3px solid #1DB954 !important;
+    background-color: #1DB954 !important;
+    background-image: url(artist_white.png);
+}
+/* Customization of the third tab, when selected */
+.tab3_selected {
+    color: #FCF9F4 !important;
+    border-left: 1px solid #1DB954 !important;
+    border-right: 1px solid #1DB954 !important;
+    border-top: 3px solid #1DB954 !important;
+    background-color: #1DB954 !important;
+    background-image: url(music_white.png);
+}
+
+/* Customization of the Div where the app title is included */
 .title_box {
-  padding: 10px;
   text-align: center;
   font-variant: small-caps;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   color: #FFFFFF;
+  font-size: 25px;
 }
 
-
-.custom-tabs-container {
-    width: 85%;
-
-}
-.custom-tabs {
-    border-top-left-radius: 3px;
-    background-color: #f9f9f9;
-    padding: 0px 24px;
-    border-bottom: 1px solid #d6d6d6;
+/* Customization of the Div where each tab title is included */
+.tab_header_title{
+    text-align: center;
+    font-size: 25px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #FFFFFF;
+    font-variant: small-caps;
 }
 
-.custom-tab {
-    color:#586069;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-top: 3px solid transparent !important;
-    border-left: 0px !important;
-    border-right: 0px !important;
-    border-bottom: 0px !important;
-    background-color: #fafbfc;
-    padding: 12px !important;
-    font-family: "system-ui";
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+/* Dropdowns customization */
+/* Customization of the dropdowns */
+.dropdowns{
+    margin: 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
-.custom-tab--selected {
-    color: black;
-    box-shadow: 1px 1px 0px white;
-    border-left: 1px solid lightgrey !important;
-    border-right: 1px solid lightgrey !important;
-    border-top: 3px solid #e36209 !important;
+
+.dropdowns2{
+    margin: 5px 5px 5px 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/* Changing the background color of the selected option in the dropdown */
+.Select-control {
+  background-color: rgba(25, 20, 20, 0.3) !important;
+}
+/* Changing the background color of the dropdown menu */
+.Select-menu-outer {
+  background-color: rgb(25, 20, 20) !important;;
+}
+/* Changing the color of the text of the dropdown */
+.VirtualizedSelectOption {
+    color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+/* Changing the background color of the option where the mouse is */
+.VirtualizedSelectFocusedOption {
+    background-color: #1DB954;
+    color: white;
+}
+/* Changing the color of the selected option in the dropdown */
+.Select-value-label {
+    color: white !important;
+}
+/* Removing the blue border of the dropdown, when selected */
+.is-focused:not(.is-open) > .Select-control {
+  border-color: var(--primary);
+  box-shadow: none;
+}
+
+/* Customization of the footer */
+.footer {
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #FFFFFF;
+    border-top: 5px solid #1DB954;
+    padding: 0px 0px 10px;
+}
+
+/* Customization of the big boxes */
+.big_box{
+  border-radius: 20px;
+  background-color: rgba(83, 83, 83, 0.56);
+  margin: 20px;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.2);
+  justify-content: center;
+  width: 20%;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding: 10px;
+  color: #FCF9F4;
+}
+
+/* Customization of the small boxes */
+.small_box{
+  border-radius: 20px;
+  background-color: rgba(29, 185, 84, 0.56);
+  margin: 20px;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.2);
+  justify-content: center;
+  width: 20%;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding: 10px;
+  color: #FCF9F4;
 }
